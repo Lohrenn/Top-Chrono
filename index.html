@@ -1,27 +1,336 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Top Chrono Pressing</title>
-    <link rel="manifest" href="manifest.json">
-    <!-- Redirection automatique vers votre formulaire -->
-    <meta http-equiv="refresh" content="0; url=https://run.clickup.ai/90141413558/06df61ee-99a0-478b-ade7-8c894e574e50/top-chrono-portfolio.html">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('sw.js');
-        }
-    </script>
-    
-<link rel="icon" href="icon-512.png">
-<link rel="apple-touch-icon" href="icon-512.png">
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Top Chrono Pressing | Pointe-Noire</title>
+
+<!-- PWA / App Icon -->
+<link rel="icon" type="image/png" href="icon-512.png">
+<link rel="apple-touch-icon" sizes="512x512" href="icon-512.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Top Chrono">
 <meta name="theme-color" content="#0a1e3d">
-    
+<meta name="description" content="Top Chrono Pressing - Blanchisserie & Laverie Express à Pointe-Noire, République du Congo">
+
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+:root { --blue-deep: oklch(15% 0.08 258); --blue-primary: oklch(45% 0.2 255); --blue-mid: oklch(55% 0.18 258); --blue-bright: oklch(65% 0.2 255); --white: oklch(98% 0.005 258); --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1); }
+html { scroll-snap-type: y mandatory; scroll-behavior: smooth; overflow-x: hidden; }
+body { font-family: 'Inter', system-ui, sans-serif; background: oklch(8% 0.04 258); color: var(--white); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; text-wrap: balance; }
+.progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: linear-gradient(90deg, var(--blue-primary), var(--blue-bright)); z-index: 1001; transition: width 0.3s var(--ease-out-expo); width: 0%; }
+.music-container { position: fixed; top: 20px; left: 20px; z-index: 1000; display: flex; align-items: center; gap: 10px; }
+.music-btn { width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid oklch(50% 0.1 258 / 0.4); background: oklch(10% 0.04 258 / 0.7); backdrop-filter: blur(16px); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s var(--ease-out-expo); box-shadow: 0 4px 20px oklch(0% 0 0 / 0.4); flex-shrink: 0; }
+.music-btn:hover { transform: scale(1.1); border-color: var(--blue-bright); }
+.music-btn .bars { display: flex; align-items: center; gap: 3px; height: 16px; }
+.music-btn .bar { width: 3px; background: var(--blue-bright); border-radius: 2px; }
+.music-btn.playing .bar { animation: barPulse 0.8s ease-in-out infinite alternate; }
+.music-btn.playing .bar:nth-child(1) { animation-delay: 0s; }
+.music-btn.playing .bar:nth-child(2) { animation-delay: 0.15s; }
+.music-btn.playing .bar:nth-child(3) { animation-delay: 0.3s; }
+.music-btn.playing .bar:nth-child(4) { animation-delay: 0.45s; }
+@keyframes barPulse { 0% { height: 4px; } 100% { height: 16px; } }
+.music-btn:not(.playing) .bar { height: 8px; }
+.music-btn:not(.playing) .bar:nth-child(1) { height: 6px; }
+.music-btn:not(.playing) .bar:nth-child(2) { height: 10px; }
+.music-btn:not(.playing) .bar:nth-child(3) { height: 8px; }
+.music-btn:not(.playing) .bar:nth-child(4) { height: 5px; }
+.click-here { background: oklch(10% 0.04 258 / 0.7); backdrop-filter: blur(16px); border: 1px solid oklch(50% 0.1 258 / 0.3); border-radius: 20px; padding: 6px 14px; font-size: 0.75rem; font-weight: 600; color: var(--blue-bright); font-family: 'Outfit', sans-serif; letter-spacing: 0.03em; white-space: nowrap; animation: clickPulse 2s ease-in-out infinite; cursor: pointer; transition: opacity 0.5s var(--ease-out-expo), transform 0.5s var(--ease-out-expo); }
+.click-here.hidden { opacity: 0; transform: translateX(-10px); pointer-events: none; }
+@keyframes clickPulse { 0%, 100% { opacity: 0.7; transform: translateX(0); } 50% { opacity: 1; transform: translateX(3px); } }
+.click-here::before { content: '♪ '; }
+.lang-toggle { position: fixed; top: 20px; right: 20px; z-index: 1000; display: flex; border-radius: 24px; overflow: hidden; backdrop-filter: blur(16px); background: oklch(10% 0.04 258 / 0.7); border: 1px solid oklch(50% 0.1 258 / 0.3); box-shadow: 0 4px 20px oklch(0% 0 0 / 0.4); }
+.lang-btn { padding: 8px 18px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; border: none; cursor: pointer; transition: all 0.3s var(--ease-out-expo); background: transparent; color: oklch(65% 0.05 258); font-family: 'Outfit', sans-serif; }
+.lang-btn.active { background: var(--blue-primary); color: var(--white); }
+.nav-dots { position: fixed; right: 20px; top: 50%; transform: translateY(-50%); z-index: 999; display: flex; flex-direction: column; gap: 12px; }
+.nav-dot { width: 8px; height: 8px; border-radius: 50%; background: oklch(60% 0.05 258 / 0.3); border: 1.5px solid oklch(70% 0.08 258 / 0.4); cursor: pointer; transition: all 0.4s var(--ease-out-expo); }
+.nav-dot.active { background: var(--blue-bright); border-color: var(--blue-bright); transform: scale(1.5); box-shadow: 0 0 10px oklch(65% 0.2 255 / 0.5); }
+section { height: 100vh; width: 100vw; scroll-snap-align: start; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.photo-section { position: relative; display: flex; flex-direction: column; }
+.photo-bg { position: absolute; inset: 0; background-size: cover; background-position: center; animation: kenBurns var(--kb-dur, 20s) ease-in-out infinite alternate; transform-origin: var(--kb-origin, center); }
+@keyframes kenBurns { 0% { transform: scale(1); } 100% { transform: scale(1.15); } }
+.photo-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, oklch(8% 0.04 258 / 0.3) 0%, oklch(8% 0.04 258 / 0.05) 30%, oklch(8% 0.04 258 / 0.2) 60%, oklch(8% 0.04 258 / 0.88) 100%); }
+.photo-content { position: relative; z-index: 10; text-align: center; padding: 24px; max-width: 500px; display: flex; flex-direction: column; align-items: center; margin-top: auto; padding-bottom: clamp(60px, 12vh, 120px); }
+.step-tag { display: inline-flex; align-items: center; gap: 8px; background: oklch(20% 0.1 258 / 0.6); backdrop-filter: blur(12px); border: 1px solid oklch(50% 0.12 258 / 0.3); border-radius: 24px; padding: 6px 16px; margin-bottom: 16px; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--blue-bright); }
+.step-tag .num { background: var(--blue-primary); color: var(--white); width: 22px; height: 22px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 800; }
+.photo-content h2 { font-size: clamp(1.6rem, 5vw, 2.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 10px; text-shadow: 0 2px 20px oklch(0% 0 0 / 0.5); }
+.photo-content p { font-size: clamp(0.9rem, 2.5vw, 1.05rem); color: oklch(85% 0.03 258); line-height: 1.5; text-shadow: 0 1px 10px oklch(0% 0 0 / 0.5); }
+.vignette { position: absolute; inset: 0; box-shadow: inset 0 0 150px oklch(0% 0 0 / 0.6); pointer-events: none; z-index: 5; }
+.hero { background: oklch(10% 0.06 258); }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, oklch(25% 0.15 258) 0%, oklch(10% 0.06 258) 70%); }
+.hero-content { position: relative; z-index: 10; text-align: center; padding: 24px; }
+.chrono-icon { width: 72px; height: 72px; margin: 0 auto 20px; }
+.hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; letter-spacing: -0.03em; line-height: 0.9; color: var(--white); margin-bottom: 6px; }
+.hero .subtitle { font-size: clamp(1rem, 3vw, 1.4rem); font-weight: 700; color: var(--blue-bright); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
+.hero .tagline { font-size: clamp(0.85rem, 2vw, 1rem); color: oklch(75% 0.04 258); font-weight: 300; font-style: italic; margin-bottom: 48px; }
+.scroll-cta { display: flex; flex-direction: column; align-items: center; gap: 8px; color: oklch(60% 0.08 258); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; animation: breathe 3s ease-in-out infinite; }
+@keyframes breathe { 0%, 100% { opacity: 0.5; transform: translateY(0); } 50% { opacity: 1; transform: translateY(6px); } }
+.scroll-arrow { width: 24px; height: 24px; border-right: 2px solid oklch(60% 0.1 258); border-bottom: 2px solid oklch(60% 0.1 258); transform: rotate(45deg); }
+.orbit-container { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: clamp(300px, 70vw, 550px); height: clamp(300px, 70vw, 550px); pointer-events: none; z-index: 5; }
+.orbit-path { position: absolute; inset: 0; border-radius: 50%; border: 1px solid oklch(40% 0.1 258 / 0.1); animation: orbitSpin var(--speed, 15s) linear infinite; }
+.orbit-path.reverse { animation-direction: reverse; }
+.orbit-item { position: absolute; font-size: clamp(1.8rem, 4vw, 2.8rem); animation: counterSpin var(--speed, 15s) linear infinite; filter: drop-shadow(0 0 8px oklch(60% 0.1 258 / 0.3)); }
+.orbit-path.reverse .orbit-item { animation-direction: reverse; }
+.orbit-item:nth-child(1) { top: 0; left: 50%; }
+.orbit-item:nth-child(2) { top: 50%; right: 0; }
+.orbit-item:nth-child(3) { bottom: 0; left: 50%; }
+.orbit-item:nth-child(4) { top: 50%; left: 0; }
+.orbit-item:nth-child(5) { top: 15%; right: 10%; }
+.orbit-item:nth-child(6) { bottom: 15%; left: 10%; }
+@keyframes orbitSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes counterSpin { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+.orbit-glow { position: absolute; inset: 20px; border-radius: 50%; border: 1.5px solid oklch(50% 0.15 258 / 0.15); }
+.showcase-section { background: oklch(10% 0.05 258); flex-direction: column; padding: 60px 24px; scroll-snap-align: start; height: auto; min-height: 100vh; }
+.showcase-section h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 8px; text-align: center; z-index: 2; }
+.showcase-sub { text-align: center; color: oklch(60% 0.04 258); font-size: 0.85rem; margin-bottom: 32px; z-index: 2; }
+.showcase-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; max-width: 600px; width: 100%; z-index: 2; }
+.showcase-item { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 4/3; transition: transform 0.4s var(--ease-out-expo); }
+.showcase-item:hover { transform: scale(1.02); }
+.showcase-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.showcase-item .overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 16px; background: linear-gradient(to top, oklch(8% 0.04 258 / 0.9) 0%, transparent 100%); }
+.showcase-item .overlay h3 { font-size: 0.9rem; font-weight: 700; color: var(--white); }
+.showcase-item .overlay p { font-size: 0.7rem; color: oklch(70% 0.04 258); margin-top: 2px; }
+.services-section { background: linear-gradient(180deg, oklch(10% 0.05 258) 0%, oklch(14% 0.07 258) 100%); flex-direction: column; padding: 60px 24px; scroll-snap-align: start; height: auto; min-height: 100vh; }
+.services-section h2 { font-size: clamp(1.6rem, 4vw, 2.2rem); font-weight: 800; margin-bottom: 32px; text-align: center; z-index: 2; }
+.services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; max-width: 560px; width: 100%; z-index: 2; }
+.service-card { background: oklch(18% 0.06 258 / 0.8); border: 1px solid oklch(30% 0.08 258 / 0.5); border-radius: 16px; padding: 20px 14px; text-align: center; transition: all 0.4s var(--ease-out-expo); backdrop-filter: blur(8px); }
+.service-card:hover { transform: translateY(-4px); border-color: var(--blue-mid); box-shadow: 0 12px 40px oklch(45% 0.2 255 / 0.15); }
+.service-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+.service-card h3 { font-size: 0.85rem; font-weight: 700; margin-bottom: 3px; color: var(--white); }
+.service-card .price { font-size: 0.7rem; color: var(--blue-bright); font-weight: 500; }
+.free-badge { display: inline-block; background: oklch(40% 0.18 150 / 0.2); color: oklch(72% 0.15 150); padding: 3px 12px; border-radius: 12px; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-top: 6px; }
+.form-container { max-width: 480px; width: 100%; z-index: 2; }
+.form-container h2 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; margin-bottom: 6px; text-align: center; }
+.form-sub { text-align: center; color: oklch(65% 0.04 258); font-size: 0.85rem; margin-bottom: 28px; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; font-size: 0.75rem; font-weight: 600; color: oklch(70% 0.04 258); margin-bottom: 5px; letter-spacing: 0.04em; text-transform: uppercase; }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 14px; background: oklch(16% 0.05 258); border: 1px solid oklch(28% 0.06 258); border-radius: 10px; color: var(--white); font-size: 0.9rem; font-family: 'Inter', system-ui; transition: border-color 0.3s var(--ease-out-expo), box-shadow 0.3s var(--ease-out-expo); }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--blue-mid); box-shadow: 0 0 0 3px oklch(55% 0.18 258 / 0.12); }
+.form-group textarea { resize: vertical; min-height: 70px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.submit-btn { width: 100%; padding: 16px; background: linear-gradient(135deg, var(--blue-primary) 0%, oklch(50% 0.2 258) 100%); border: none; border-radius: 12px; color: var(--white); font-size: 1rem; font-weight: 700; font-family: 'Outfit', sans-serif; cursor: pointer; transition: all 0.3s var(--ease-out-expo); margin-top: 8px; }
+.submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px oklch(45% 0.2 255 / 0.3); }
+.contact-section { background: linear-gradient(180deg, oklch(12% 0.06 258) 0%, oklch(8% 0.04 258) 100%); flex-direction: column; gap: 24px; padding: 60px 24px; scroll-snap-align: start; height: auto; min-height: 100vh; }
+.contact-card { background: oklch(16% 0.06 258 / 0.8); border: 1px solid oklch(28% 0.08 258 / 0.5); border-radius: 20px; padding: 36px 28px; max-width: 420px; width: 100%; text-align: center; backdrop-filter: blur(12px); }
+.contact-card h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 20px; }
+.contact-item { display: flex; align-items: flex-start; gap: 12px; text-align: left; padding: 14px 0; border-bottom: 1px solid oklch(25% 0.04 258 / 0.6); }
+.contact-item:last-child { border-bottom: none; }
+.contact-item .icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+.contact-item .info { display: flex; flex-direction: column; gap: 2px; }
+.contact-item .label { font-size: 0.7rem; color: oklch(55% 0.04 258); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+.contact-item .value { font-size: 0.9rem; color: var(--white); font-weight: 500; }
+.contact-item a { color: var(--blue-bright); text-decoration: none; }
+.hours-badge { display: inline-block; background: oklch(22% 0.08 258); border: 1px solid oklch(35% 0.1 258 / 0.4); border-radius: 12px; padding: 12px 20px; margin-top: 16px; font-size: 0.85rem; color: oklch(75% 0.04 258); }
+.hours-badge strong { color: var(--blue-bright); }
+.success-msg { display: none; text-align: center; padding: 40px; }
+.success-msg.show { display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.success-msg .check-circle { width: 60px; height: 60px; border-radius: 50%; background: oklch(45% 0.18 150 / 0.15); border: 2px solid oklch(60% 0.2 150); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; animation: popIn 0.5s var(--ease-out-expo); }
+@keyframes popIn { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+.success-msg h3 { font-size: 1.3rem; margin-bottom: 4px; color: oklch(72% 0.15 150); }
+.success-msg p { color: oklch(70% 0.04 258); font-size: 0.9rem; line-height: 1.5; max-width: 340px; }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.footer { text-align: center; padding: 20px; font-size: 0.7rem; color: oklch(40% 0.03 258); }
+@media (max-width: 640px) { .nav-dots { right: 10px; gap: 10px; } .lang-toggle { top: 12px; right: 12px; } .lang-btn { padding: 6px 12px; font-size: 0.7rem; } .music-container { top: 12px; left: 12px; } .music-btn { width: 38px; height: 38px; } .click-here { font-size: 0.65rem; padding: 5px 10px; } .showcase-grid { gap: 8px; } .services-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } .service-card { padding: 16px 12px; } .form-row { grid-template-columns: 1fr; } .contact-card { padding: 24px 18px; } }
+</style>
 </head>
 <body>
-    <p>Redirection vers Top Chrono...</p>
+<div class="progress-bar" id="progressBar"></div>
+<div class="music-container"><button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle music"><div class="bars"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div></button><span class="click-here" id="clickHere" onclick="toggleMusic()" data-fr="Cliquez ici pour la musique" data-en="Click here for music">Cliquez ici pour la musique</span></div>
+<div class="lang-toggle"><button class="lang-btn active" onclick="setLang('fr')">FR</button><button class="lang-btn" onclick="setLang('en')">EN</button></div>
+<nav class="nav-dots" id="navDots"><button class="nav-dot active" onclick="goTo(0)"></button><button class="nav-dot" onclick="goTo(1)"></button><button class="nav-dot" onclick="goTo(2)"></button><button class="nav-dot" onclick="goTo(3)"></button><button class="nav-dot" onclick="goTo(4)"></button><button class="nav-dot" onclick="goTo(5)"></button><button class="nav-dot" onclick="goTo(6)"></button><button class="nav-dot" onclick="goTo(7)"></button><button class="nav-dot" onclick="goTo(8)"></button></nav>
+
+<section class="hero" id="sec0">
+  <div class="hero-bg"></div>
+  <div class="orbit-container"><div class="orbit-glow"></div><div class="orbit-path" style="--speed:18s"><span class="orbit-item">👔</span><span class="orbit-item">👗</span><span class="orbit-item">🧥</span><span class="orbit-item">👖</span><span class="orbit-item">👰</span><span class="orbit-item">🛏️</span></div><div class="orbit-path reverse" style="--speed:12s;inset:60px"><span class="orbit-item" style="font-size:clamp(1.4rem,3vw,2rem)">👞</span><span class="orbit-item" style="font-size:clamp(1.4rem,3vw,2rem)">👟</span><span class="orbit-item" style="font-size:clamp(1.4rem,3vw,2rem)">🧺</span><span class="orbit-item" style="font-size:clamp(1.4rem,3vw,2rem)">✨</span></div></div>
+  <div class="hero-content">
+    <svg class="chrono-icon" viewBox="0 0 72 72" fill="none"><circle cx="36" cy="36" r="32" stroke="oklch(55% 0.18 255)" stroke-width="2.5" fill="oklch(15% 0.06 258 / 0.6)"/><circle cx="36" cy="36" r="25" stroke="oklch(40% 0.1 258 / 0.4)" stroke-width="1" stroke-dasharray="3 5"><animateTransform attributeName="transform" type="rotate" from="0 36 36" to="360 36 36" dur="20s" repeatCount="indefinite"/></circle><line x1="36" y1="36" x2="36" y2="16" stroke="oklch(90% 0.03 258)" stroke-width="2.5" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 36 36" to="360 36 36" dur="5s" repeatCount="indefinite"/></line><line x1="36" y1="36" x2="52" y2="36" stroke="oklch(70% 0.08 258)" stroke-width="1.5" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 36 36" to="360 36 36" dur="45s" repeatCount="indefinite"/></line><circle cx="36" cy="36" r="2.5" fill="var(--blue-bright)"/></svg>
+    <h1>TOP CHRONO</h1>
+    <div class="subtitle" data-fr="Pressing" data-en="Dry Cleaning">Pressing</div>
+    <p class="tagline" data-fr="Un service comme à la maison mais en mieux !" data-en="A service like home, but better!">Un service comme à la maison mais en mieux !</p>
+    <div class="scroll-cta"><span data-fr="Découvrir" data-en="Discover">Découvrir</span><div class="scroll-arrow"></div></div>
+  </div>
+</section>
+
+<section class="showcase-section" id="sec1">
+  <h2 data-fr="Nous traitons tous vos textiles" data-en="We Handle All Your Textiles">Nous traitons tous vos textiles</h2>
+  <p class="showcase-sub" data-fr="Blazers, robes, chaussures, baskets: tout ressort comme neuf." data-en="Blazers, dresses, shoes, sneakers: everything comes out like new.">Blazers, robes, chaussures, baskets: tout ressort comme neuf.</p>
+  <div class="showcase-grid">
+    <div class="showcase-item reveal"><img src="https://t90141413558.p.clickup-attachments.com/t90141413558/955e8506-2ee5-4bad-b1f5-02b17fffbfb7/generated-image-8618da1d-4fc4-44d9-ab2f-daf336e23a03.png?view=open" alt="Blazers"><div class="overlay"><h3 data-fr="Blazers & Costumes" data-en="Blazers & Suits">Blazers & Costumes</h3><p data-fr="Nettoyés, pressés, prêts à porter" data-en="Cleaned, pressed, ready to wear">Nettoyés, pressés, prêts à porter</p></div></div>
+    <div class="showcase-item reveal"><img src="https://t90141413558.p.clickup-attachments.com/t90141413558/b566253a-119e-4f9c-9bd4-45302ef4788c/generated-image-0073eb5d-e241-44c0-bedf-40e4a5350482.png?view=open" alt="Dresses"><div class="overlay"><h3 data-fr="Robes & Robes de mariée" data-en="Dresses & Wedding Gowns">Robes & Robes de mariée</h3><p data-fr="Soins délicats pour pièces précieuses" data-en="Delicate care for precious pieces">Soins délicats pour pièces précieuses</p></div></div>
+    <div class="showcase-item reveal"><img src="https://t90141413558.p.clickup-attachments.com/t90141413558/9ffdc407-2220-4ffe-92b5-c2618a4e8538/generated-image-84785c24-de25-4d3a-af8f-eec56f811d86.png?view=open" alt="Shoes"><div class="overlay"><h3 data-fr="Chaussures en cuir" data-en="Leather Shoes">Chaussures en cuir</h3><p data-fr="Nettoyage et cirage professionnel" data-en="Professional cleaning and polishing">Nettoyage et cirage professionnel</p></div></div>
+    <div class="showcase-item reveal"><img src="https://t90141413558.p.clickup-attachments.com/t90141413558/f0c0b549-962c-4de7-9664-e9f9e2c578f1/generated-image-76864ca3-e33f-4296-a1f1-49d15a3a8f81.png?view=open" alt="Sneakers"><div class="overlay"><h3 data-fr="Baskets & Sneakers" data-en="Sneakers & Trainers">Baskets & Sneakers</h3><p data-fr="Restauration complète, comme neuves" data-en="Full restoration, like brand new">Restauration complète, comme neuves</p></div></div>
+  </div>
+</section>
+
+<section class="photo-section" id="sec2"><div class="photo-bg" style="background-image:url('https://t90141413558.p.clickup-attachments.com/t90141413558/7a159fa2-1488-45e1-846d-afffad9b4344/generated-image-21f4b43e-380f-4c31-9aa8-2398e6cb0e68.png?view=open');--kb-dur:18s;--kb-origin:70% 40%"></div><div class="photo-overlay"></div><div class="vignette"></div><div class="photo-content reveal"><div class="step-tag"><span class="num">1</span><span data-fr="Étape" data-en="Step">Étape</span></div><h2 data-fr="Dépôt des vêtements" data-en="Loading Your Clothes">Dépôt des vêtements</h2><p data-fr="Vos vêtements sont soigneusement triés et chargés dans nos machines professionnelles Philco Predicta." data-en="Your clothes are carefully sorted and loaded into our professional Philco Predicta machines.">Vos vêtements sont soigneusement triés et chargés dans nos machines professionnelles Philco Predicta.</p></div></section>
+
+<section class="photo-section" id="sec3"><div class="photo-bg" style="background-image:url('https://t90141413558.p.clickup-attachments.com/t90141413558/2ecb9a6d-30eb-4735-8ef2-6d8bc8102758/generated-image-9a59ffda-78ac-442a-aad5-2174f13a1ee7.png?view=open');--kb-dur:22s;--kb-origin:50% 60%"></div><div class="photo-overlay"></div><div class="vignette"></div><div class="photo-content reveal"><div class="step-tag"><span class="num">2</span><span data-fr="Étape" data-en="Step">Étape</span></div><h2 data-fr="Lavage en profondeur" data-en="Deep Cleaning">Lavage en profondeur</h2><p data-fr="Après un cycle de lavage impeccable, vos vêtements sortent frais et propres." data-en="After a flawless wash cycle, your clothes come out fresh and clean.">Après un cycle de lavage impeccable, vos vêtements sortent frais et propres.</p></div></section>
+
+<section class="photo-section" id="sec4"><div class="photo-bg" style="background-image:url('https://t90141413558.p.clickup-attachments.com/t90141413558/0b8d2b07-a5a9-405f-88e0-9bd33f761cb2/generated-image-f131a661-563e-4ff8-a5bd-9da7a6886e0f.png?view=open');--kb-dur:16s;--kb-origin:40% 50%"></div><div class="photo-overlay"></div><div class="vignette"></div><div class="photo-content reveal"><div class="step-tag"><span class="num">3</span><span data-fr="Étape" data-en="Step">Étape</span></div><h2 data-fr="Repassage expert" data-en="Expert Ironing">Repassage expert</h2><p data-fr="Chaque pièce est repassée à la vapeur avec précision pour un résultat net et impeccable." data-en="Each piece is steam-ironed with precision for a crisp, flawless result.">Chaque pièce est repassée à la vapeur avec précision pour un résultat net et impeccable.</p></div></section>
+
+<section class="photo-section" id="sec5"><div class="photo-bg" style="background-image:url('https://t90141413558.p.clickup-attachments.com/t90141413558/83d4eb49-c25d-4e22-8fb5-de3c666104b9/generated-image-126b6e29-6cb4-4ff9-899a-159cc0466b8f.png?view=open');--kb-dur:20s;--kb-origin:60% 45%"></div><div class="photo-overlay"></div><div class="vignette"></div><div class="photo-content reveal"><div class="step-tag"><span class="num">4</span><span data-fr="Étape" data-en="Step">Étape</span></div><h2 data-fr="Pliage soigné" data-en="Careful Folding">Pliage soigné</h2><p data-fr="Vos vêtements sont pliés avec soin, organisés et prêts à être récupérés ou livrés." data-en="Your clothes are neatly folded, organized, and ready for pickup or delivery.">Vos vêtements sont pliés avec soin, organisés et prêts à être récupérés ou livrés.</p></div></section>
+
+<section class="photo-section" id="sec6"><div class="photo-bg" style="background-image:url('https://t90141413558.p.clickup-attachments.com/t90141413558/ba82fff1-2fb1-49fe-9c8d-a7f974b5db2e/generated-image-abb261cb-6b02-4610-ba78-69203475984c.png?view=open');--kb-dur:24s;--kb-origin:50% 40%"></div><div class="photo-overlay"></div><div class="vignette"></div><div class="photo-content reveal"><div class="step-tag"><span class="num">5</span><span data-fr="Étape" data-en="Step">Étape</span></div><h2 data-fr="Livraison gratuite" data-en="Free Delivery">Livraison gratuite</h2><p data-fr="Nous venons chercher et livrons vos vêtements directement chez vous. Service gratuit !" data-en="We pick up and deliver your clothes directly to your door. Free service!">Nous venons chercher et livrons vos vêtements directement chez vous. Service gratuit !</p></div></section>
+
+<section class="services-section" id="sec7">
+  <h2 data-fr="Nos Services" data-en="Our Services">Nos Services</h2>
+  <div class="services-grid">
+    <div class="service-card"><span class="service-icon">🧺</span><h3 data-fr="Lavage" data-en="Wash">Lavage</h3><p class="price" data-fr="Par kg" data-en="Per kg">Par kg</p></div>
+    <div class="service-card"><span class="service-icon">👔</span><h3 data-fr="Repassage" data-en="Ironing">Repassage</h3><p class="price" data-fr="Par pièce" data-en="Per item">Par pièce</p></div>
+    <div class="service-card"><span class="service-icon">✨</span><h3 data-fr="Pressing" data-en="Pressing">Pressing</h3><p class="price" data-fr="Par pièce" data-en="Per item">Par pièce</p></div>
+    <div class="service-card"><span class="service-icon">📐</span><h3 data-fr="Pliage" data-en="Folding">Pliage</h3><p class="price" data-fr="Inclus" data-en="Included">Inclus</p></div>
+    <div class="service-card"><span class="service-icon">👟</span><h3 data-fr="Nettoyage baskets" data-en="Sneaker Cleaning">Nettoyage baskets</h3><p class="price" data-fr="Par paire" data-en="Per pair">Par paire</p></div>
+    <div class="service-card"><span class="service-icon">👞</span><h3 data-fr="Cirage chaussures" data-en="Shoe Polishing">Cirage chaussures</h3><p class="price" data-fr="Par paire" data-en="Per pair">Par paire</p></div>
+    <div class="service-card"><span class="service-icon">👰</span><h3 data-fr="Robe de mariée" data-en="Wedding Dress">Robe de mariée</h3><p class="price" data-fr="Sur devis" data-en="Quote">Sur devis</p></div>
+    <div class="service-card"><span class="service-icon">🛏️</span><h3 data-fr="Couvertures" data-en="Blankets">Couvertures</h3><p class="price" data-fr="Par pièce" data-en="Per item">Par pièce</p></div>
+    <div class="service-card" style="grid-column:1/-1"><span class="service-icon">🚗</span><h3 data-fr="Collecte & Livraison à domicile" data-en="Home Pickup & Delivery">Collecte & Livraison à domicile</h3><span class="free-badge" data-fr="GRATUIT" data-en="FREE">GRATUIT</span></div>
+  </div>
+  <div class="form-container" style="margin-top:48px">
+    <h2 data-fr="Demande de collecte" data-en="Pickup Request">Demande de collecte</h2>
+    <p class="form-sub" data-fr="Remplissez le formulaire, nous venons chez vous." data-en="Fill out the form, we come to you.">Remplissez le formulaire, nous venons chez vous.</p>
+    <form id="pickupForm" onsubmit="handleSubmit(event)">
+      <div class="form-row"><div class="form-group"><label data-fr="Nom complet" data-en="Full Name">Nom complet</label><input type="text" id="f_nom" required placeholder="Jean Makaya"></div><div class="form-group"><label data-fr="Téléphone" data-en="Phone">Téléphone</label><input type="tel" id="f_tel" required placeholder="+242 0X XXX XX XX"></div></div>
+      <div class="form-group"><label data-fr="Adresse de collecte" data-en="Pickup Address">Adresse de collecte</label><input type="text" id="f_adresse" required placeholder="Quartier, rue, repère..."></div>
+      <div class="form-row"><div class="form-group"><label data-fr="Date souhaitée" data-en="Preferred Date">Date souhaitée</label><input type="date" id="f_date" required></div><div class="form-group"><label data-fr="Créneau horaire" data-en="Time Slot">Créneau horaire</label><select id="f_creneau" required><option value="" data-fr="Choisir..." data-en="Choose...">Choisir...</option><option value="Matin (7h30-12h)" data-fr="Matin (7h30 - 12h)" data-en="Morning (7:30AM - 12PM)">Matin (7h30 - 12h)</option><option value="Après-midi (12h-16h)" data-fr="Après-midi (12h - 16h)" data-en="Afternoon (12PM - 4PM)">Après-midi (12h - 16h)</option><option value="Soir (16h-19h)" data-fr="Soir (16h - 19h)" data-en="Evening (4PM - 7PM)">Soir (16h - 19h)</option></select></div></div>
+      <div class="form-group"><label data-fr="Services souhaités" data-en="Services Needed">Services souhaités</label><select id="f_service" required><option value="" data-fr="Sélectionner..." data-en="Select...">Sélectionner...</option><option value="Lavage + Pliage" data-fr="Lavage + Pliage" data-en="Wash + Fold">Lavage + Pliage</option><option value="Repassage seul" data-fr="Repassage seul" data-en="Ironing Only">Repassage seul</option><option value="Pressing complet" data-fr="Pressing complet" data-en="Full Pressing">Pressing complet</option><option value="Tout (Lavage+Repassage+Pliage)" data-fr="Tout (Lavage + Repassage + Pliage)" data-en="All (Wash + Iron + Fold)">Tout (Lavage + Repassage + Pliage)</option><option value="Nettoyage chaussures/baskets" data-fr="Nettoyage chaussures / baskets" data-en="Shoes / Sneakers Cleaning">Nettoyage chaussures / baskets</option><option value="Pièce spéciale" data-fr="Pièce spéciale (robe de mariée, couverture)" data-en="Special Item (wedding dress, blanket)">Pièce spéciale (robe de mariée, couverture)</option></select></div>
+      <div class="form-group"><label data-fr="Nombre de pièces (estimation)" data-en="Number of Items (estimate)">Nombre de pièces (estimation)</label><input type="number" id="f_pieces" min="1" placeholder="10" required></div>
+      <div class="form-group"><label data-fr="Instructions spéciales" data-en="Special Instructions">Instructions spéciales</label><textarea id="f_instructions" placeholder="Vêtements délicats, couleurs à séparer..."></textarea></div>
+      <button type="submit" class="submit-btn" data-fr="Envoyer la demande" data-en="Send Request">Envoyer la demande</button>
+    </form>
+    <div class="success-msg" id="successMsg"><div class="check-circle">✓</div><h3 data-fr="Demande reçue !" data-en="Request Received!">Demande reçue !</h3><p data-fr="Votre demande a été reçue et sera traitée dans les plus brefs délais. Merci de votre confiance !" data-en="Your request has been received and will be processed in due course. Thank you for your trust!">Votre demande a été reçue et sera traitée dans les plus brefs délais. Merci de votre confiance !</p></div>
+  </div>
+</section>
+
+<section class="contact-section" id="sec8">
+  <div class="contact-card">
+    <h2 data-fr="Nous trouver" data-en="Find Us">Nous trouver</h2>
+    <div class="contact-item"><span class="icon">📍</span><div class="info"><span class="label" data-fr="Adresse" data-en="Address">Adresse</span><span class="value">Situé en diagonale du lycée 30 Mars, en face de Maoune, Pointe-Noire</span></div></div>
+    <div class="contact-item"><span class="icon">📞</span><div class="info"><span class="label" data-fr="Téléphone" data-en="Phone">Téléphone</span><a href="tel:+242057704552" class="value">+242 05 770 45 52</a></div></div>
+    <div class="contact-item"><span class="icon">🕐</span><div class="info"><span class="label" data-fr="Horaires d'ouverture" data-en="Opening Hours">Horaires d'ouverture</span><span class="value" data-fr="Lundi au Samedi" data-en="Monday to Saturday">Lundi au Samedi</span></div></div>
+    <div class="hours-badge"><strong>07h30</strong> &mdash; <strong>19h00</strong></div>
+  </div>
+  <div class="footer">© 2026 Top Chrono Pressing · Pointe-Noire, République du Congo</div>
+</section>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  const nom = document.getElementById('f_nom').value;
+  const tel = document.getElementById('f_tel').value;
+  const adresse = document.getElementById('f_adresse').value;
+  const date = document.getElementById('f_date').value;
+  const creneau = document.getElementById('f_creneau').value;
+  const service = document.getElementById('f_service').value;
+  const pieces = document.getElementById('f_pieces').value;
+  const instructions = document.getElementById('f_instructions').value;
+  const message = `Bonjour Top Chrono!\n\nDemande de collecte:\n\nNom: ${nom}\nTéléphone: ${tel}\nAdresse: ${adresse}\nDate: ${date}\nCréneau: ${creneau}\nService: ${service}\nNombre de pièces: ${pieces}${instructions ? '\nInstructions: ' + instructions : ''}\n\nMerci!`;
+  const smsUrl = `sms:+242057704552?body=${encodeURIComponent(message)}`;
+  const form = document.getElementById('pickupForm');
+  const success = document.getElementById('successMsg');
+  form.style.display = 'none';
+  success.classList.add('show');
+  setTimeout(() => { window.location.href = smsUrl; }, 800);
+  setTimeout(() => { form.style.display = 'block'; success.classList.remove('show'); form.reset(); }, 10000);
+}
+
+let audioCtx=null,isPlaying=false,masterGain=null,sequenceTimer=null;
+function createPianoEngine(){audioCtx=new(window.AudioContext||window.webkitAudioContext)();masterGain=audioCtx.createGain();masterGain.gain.value=0;masterGain.connect(audioCtx.destination);const c=audioCtx.createConvolver(),rl=audioCtx.sampleRate*2.5,rb=audioCtx.createBuffer(2,rl,audioCtx.sampleRate);for(let ch=0;ch<2;ch++){const d=rb.getChannelData(ch);for(let i=0;i<rl;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/rl,3)}c.buffer=rb;const rg=audioCtx.createGain();rg.gain.value=.5;c.connect(rg);rg.connect(masterGain);const dg=audioCtx.createGain();dg.gain.value=.7;dg.connect(masterGain);function pn(f,t,v,dur){const o1=audioCtx.createOscillator(),o2=audioCtx.createOscillator(),o3=audioCtx.createOscillator();o1.type='sine';o1.frequency.value=f;o2.type='sine';o2.frequency.value=f*2;o3.type='sine';o3.frequency.value=f*3;const ng=audioCtx.createGain(),vol=v*.12;ng.gain.setValueAtTime(0,t);ng.gain.linearRampToValueAtTime(vol,t+.008);ng.gain.exponentialRampToValueAtTime(vol*.6,t+.1);ng.gain.exponentialRampToValueAtTime(vol*.3,t+dur*.5);ng.gain.exponentialRampToValueAtTime(.001,t+dur);const h2=audioCtx.createGain();h2.gain.setValueAtTime(0,t);h2.gain.linearRampToValueAtTime(vol*.3,t+.008);h2.gain.exponentialRampToValueAtTime(.001,t+dur*.7);const h3=audioCtx.createGain();h3.gain.setValueAtTime(0,t);h3.gain.linearRampToValueAtTime(vol*.1,t+.008);h3.gain.exponentialRampToValueAtTime(.001,t+dur*.4);o1.connect(ng);o2.connect(h2);o3.connect(h3);ng.connect(c);ng.connect(dg);h2.connect(c);h2.connect(dg);h3.connect(dg);o1.start(t);o1.stop(t+dur+.5);o2.start(t);o2.stop(t+dur+.5);o3.start(t);o3.stop(t+dur+.3)}const ml=[[{n:523.25,d:1.2,v:.7},{n:659.25,d:.8,v:.5},{n:783.99,d:1,v:.6},{n:880,d:1.5,v:.4},{n:783.99,d:.8,v:.5},{n:659.25,d:1.2,v:.6}],[{n:880,d:1.5,v:.6},{n:783.99,d:1,v:.5},{n:698.46,d:1.2,v:.55},{n:659.25,d:1.8,v:.65},{n:587.33,d:1,v:.5},{n:523.25,d:2,v:.7}],[{n:392,d:1,v:.6},{n:440,d:.8,v:.5},{n:523.25,d:1.2,v:.65},{n:587.33,d:1.5,v:.55},{n:659.25,d:1.8,v:.7},{n:783.99,d:2,v:.6}],[{n:523.25,d:1.5,v:.7},{n:493.88,d:.6,v:.4},{n:523.25,d:.6,v:.45},{n:659.25,d:1.8,v:.6},{n:587.33,d:1,v:.5},{n:523.25,d:2.2,v:.65}],[{n:261.63,d:2,v:.8},{n:659.25,d:.8,v:.45},{n:783.99,d:.8,v:.5},{n:329.63,d:2,v:.7},{n:783.99,d:.8,v:.45},{n:880,d:1.2,v:.55}]];const bs=[[130.81,196,261.63],[146.83,220,293.66],[164.81,246.94,329.63],[174.61,261.63,349.23],[196,293.66,392],[220,329.63,440]];let pi=0,ci=0;function ps(){if(!isPlaying)return;const now=audioCtx.currentTime,m=ml[pi%ml.length],b=bs[ci%bs.length];b.forEach((f,i)=>pn(f,now+i*.05,.35,6));let o=.3;m.forEach(n=>{pn(n.n,now+o,n.v,n.d+1);o+=n.d*.7+Math.random()*.2});pi++;ci++;sequenceTimer=setTimeout(ps,(o+1.5)*1000)}return{playSequence:ps}}
+let engine=null;
+function toggleMusic(){const btn=document.getElementById('musicBtn'),ch=document.getElementById('clickHere');if(!isPlaying){if(!audioCtx)engine=createPianoEngine();if(audioCtx.state==='suspended')audioCtx.resume();masterGain.gain.linearRampToValueAtTime(1,audioCtx.currentTime+1.5);isPlaying=true;btn.classList.add('playing');ch.classList.add('hidden');engine.playSequence()}else{masterGain.gain.linearRampToValueAtTime(0,audioCtx.currentTime+1.5);isPlaying=false;btn.classList.remove('playing');if(sequenceTimer)clearTimeout(sequenceTimer)}}
+
+let currentLang='fr';
+function setLang(lang){currentLang=lang;document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()===lang));document.documentElement.lang=lang;document.querySelectorAll('[data-'+lang+']').forEach(el=>{if(el.tagName==='OPTION')el.textContent=el.getAttribute('data-'+lang);else if(el.tagName!=='INPUT'&&el.tagName!=='TEXTAREA')el.textContent=el.getAttribute('data-'+lang)});document.querySelectorAll('[data-placeholder-'+lang+']').forEach(el=>el.placeholder=el.getAttribute('data-placeholder-'+lang))}
+
+const sections=document.querySelectorAll('section'),dots=document.querySelectorAll('.nav-dot'),progressBar=document.getElementById('progressBar');
+function updateNav(){const s=window.scrollY,t=document.documentElement.scrollHeight-window.innerHeight;progressBar.style.width=(s/t)*100+'%';sections.forEach((sec,i)=>{const r=sec.getBoundingClientRect();if(r.top<=window.innerHeight/2&&r.bottom>=window.innerHeight/2){dots.forEach(d=>d.classList.remove('active'));if(dots[i])dots[i].classList.add('active')}})}
+function goTo(i){sections[i]?.scrollIntoView({behavior:'smooth'})}
+window.addEventListener('scroll',updateNav,{passive:true});
+const ro=new IntersectionObserver(e=>{e.forEach(en=>{if(en.isIntersecting)en.target.classList.add('visible')})},{threshold:.2});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+updateNav();
+</script>
 </body>
 </html>
