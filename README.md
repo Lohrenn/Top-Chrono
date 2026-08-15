@@ -13,9 +13,9 @@ Developed a lightweight **Progressive Web App (PWA)** combined with an automated
 4. **Operations & Tracking:** Integrates backend workflow management tools to maintain high throughput and minimize administrative overhead.
 
 ## ✨ Key Features
-**PWA Architecture:** Fully responsive mobile web interface with a custom 'manifest.json' and service worker ('sw.js') enabling quick home-screen deployment.
-**Frictionless Order Flow:** Automated data handoff that eliminates manual entry errors and accelerates request submissions.
-**Optimized UX:** Custom branding, fast-loading interface, and seamless browser compatibility across mobile platforms.
+1. **PWA Architecture:** Fully responsive mobile web interface with a custom 'manifest.json' and service worker ('sw.js') enabling quick home-screen deployment.
+2. **Frictionless Order Flow:** Automated data handoff that eliminates manual entry errors and accelerates request submissions.
+3. **Optimized UX:** Custom branding, fast-loading interface, and seamless browser compatibility across mobile platforms.
 
 ## 💻 Technologies Used
 **Fronted & Deployment:** HTML5, CSS3, GitHub Pages
